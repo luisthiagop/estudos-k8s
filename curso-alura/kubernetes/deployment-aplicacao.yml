@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aplicacao-noticia-deployment
+spec:
+  selector:
+    matchLabels:
+      name: aplicacao-noticia-pod
+  template:
+    metadata:
+      labels:
+        name: aplicacao-noticia-pod
+    spec:
+      containers:
+        - name: container-aplicacao
+          image: luisthiagop/noticia-alura:v4
+          ports:
+            - containerPort: 80
+          volumeMounts:
+          - name: hostvol
+            mountPath: /var/www/html/
+      volumes:
+        - name: hostvol
+          hostPath:
+            path: /Users/luisthiagopadilha/alura/curso-kubernetes/noticias
