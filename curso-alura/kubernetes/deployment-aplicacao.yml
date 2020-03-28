@@ -13,13 +13,7 @@ spec:
     spec:
       containers:
         - name: container-aplicacao
-          image: luisthiagop/noticia-alura:v4
+          image: luisthiagop/noticia-alura:v6
           ports:
             - containerPort: 80
-          volumeMounts:
-          - name: hostvol
-            mountPath: /var/www/html/
-      volumes:
-        - name: hostvol
-          hostPath:
-            path: /Users/luisthiagopadilha/alura/curso-kubernetes/noticias
+     
